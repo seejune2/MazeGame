@@ -1,12 +1,12 @@
 package MazeMap;
+import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class MazeManager {
+public class MazeManager extends MazeGenerator {
     private static final String MAZE_DIRECTORY = "mazes";
-
+    
     public MazeManager() {
         File dir = new File(MAZE_DIRECTORY);
         if (!dir.exists()) {
@@ -35,7 +35,11 @@ public class MazeManager {
                 boolean[] row = new boolean[line.length()];
                 for (int i = 0; i < line.length(); i++) {
                     row[i] = line.charAt(i) == '0'; // '0' -> 길, '1' -> 벽
+
                 }
+
+                paintCellAndRefresh(0, 0, Color.RED);
+                paintCellAndRefresh(rows - 2, cols - 2, Color.GREEN);
                 mazeList.add(row);
             }
         } catch (IOException e) {
@@ -48,4 +52,5 @@ public class MazeManager {
         File dir = new File(MAZE_DIRECTORY);
         return dir.list((d, name) -> name.endsWith(".txt"));
     }
+
 }

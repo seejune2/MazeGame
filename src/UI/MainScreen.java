@@ -1,7 +1,7 @@
 package UI;
-import javax.swing.*;
 import MazeMap.MazeGenerator;
 import MazeMap.MazeManager;
+import javax.swing.*;
 
 public class MainScreen extends JFrame {
     public MainScreen() {
@@ -18,7 +18,7 @@ public class MainScreen extends JFrame {
         JButton createMazeButton = new JButton("미로 생성");
         createMazeButton.setBounds(100, 50, 200, 50);
         createMazeButton.addActionListener(e -> {
-            MazeGenerator generator = new MazeGenerator(21, 21, 20); // 미로 생성
+            MazeGenerator generator = new MazeGenerator(40, 40, 20); // 미로 생성
             MazeManager manager = new MazeManager();
             manager.saveMaze(generator.getMaze(), "maze1.txt"); // 미로 저장
             JOptionPane.showMessageDialog(null, "미로 생성 완료");

@@ -1,14 +1,14 @@
 package MazeMap;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class MazeGenerator extends JFrame {
 
     private final Container container = getContentPane();
     private final JPanel[][] cells;
-    private final int rows;
-    private final int cols;
+    public final int rows;
+    public final int cols;
     private final boolean[][] maze;
     private final int[][] directions = {
             {1, 0},  // Down
@@ -16,6 +16,9 @@ public class MazeGenerator extends JFrame {
             {-1, 0}, // Up
             {0, -1}  // Left
     };
+    public MazeGenerator() {
+        this(40, 40, 20);
+    }
 
     public MazeGenerator(int rows, int cols, int cellSize) {
         this.rows = rows;
@@ -49,13 +52,13 @@ public class MazeGenerator extends JFrame {
         container.repaint();
     }
 
-    private void paintCellAndRefresh(int row, int col, Color color) {
+    public void paintCellAndRefresh(int row, int col, Color color) {
         cells[row][col].setBackground(color);
         container.revalidate();
         container.repaint();
     }
 
-    private void generateMaze() {
+    public void generateMaze() {
         paintCellAndRefresh(0, 0, Color.RED); // 시작점 표시 (빨간색)
         dfs(0, 0); // DFS 알고리즘으로 미로 생성
         paintCellAndRefresh(rows - 2, cols - 2, Color.GREEN); // 도착점 표시 (초록색)

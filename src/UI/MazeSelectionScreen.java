@@ -1,7 +1,6 @@
 package UI;
-import javax.swing.*;
 import MazeMap.MazeManager;
-import GameLogic.GameEngine;
+import javax.swing.*;
 public class MazeSelectionScreen extends JFrame {
 
 
