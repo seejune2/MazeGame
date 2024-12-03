@@ -5,20 +5,17 @@ import javax.swing.*;
 
 public class MazeGenerator extends JFrame {
 
-    private final Container container = getContentPane();
-    private final JPanel[][] cells;
+    public final Container container = getContentPane();
+    public final JPanel[][] cells;
     public final int rows;
     public final int cols;
-    private final boolean[][] maze;
-    private final int[][] directions = {
+    public final boolean[][] maze;
+    public final int[][] directions = {
             {1, 0},  // Down
             {0, 1},  // Right
             {-1, 0}, // Up
             {0, -1}  // Left
     };
-    public MazeGenerator() {
-        this(40, 40, 20);
-    }
 
     public MazeGenerator(int rows, int cols, int cellSize) {
         this.rows = rows;
@@ -30,11 +27,14 @@ public class MazeGenerator extends JFrame {
         setSize(cols * cellSize, rows * cellSize);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setVisible(true);
+        // getContentPane().remove(MazeGenerator.this);
+        // setVisible(false);
+    setVisible(true);
 
-        init();
-        generateMaze();
-    }
+    init();
+    generateMaze();
+
+   }
 
     private void init() {
         container.setLayout(new GridLayout(rows, cols));
@@ -130,4 +130,6 @@ public class MazeGenerator extends JFrame {
     public boolean[][] getMaze() {
         return maze;
     }
+
+    
 }

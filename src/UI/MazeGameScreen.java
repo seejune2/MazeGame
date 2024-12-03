@@ -10,6 +10,7 @@ public class MazeGameScreen extends JFrame {
 
 
         // 저장된 미로 불러오기
+        
         MazeManager mazeManager = new MazeManager();
         boolean[][] booleanMaze = mazeManager.loadMaze(filepath);
         // 메인 게임 화면 표시
