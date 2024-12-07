@@ -6,7 +6,7 @@ public class MazeSelectionScreen extends JFrame {
 
     public MazeSelectionScreen() {
         setTitle("미로 선택 화면");
-        setSize(400, 300);
+        setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
@@ -22,25 +22,31 @@ public class MazeSelectionScreen extends JFrame {
         startButton.addActionListener(e -> {
             String selectedMaze = mazeList.getSelectedValue();
             if (selectedMaze != null) {
-                // boolean[][] maze = manager.loadMaze(selectedMaze);
+                boolean[][] maze = manager.loadMaze(selectedMaze);
                 getContentPane().removeAll();
-                new MazeGameScreen();
+                new MazeGameScreen(maze);
                 setVisible(false);
                 // GameEngine engine = new GameEngine(maze);
                 // engine.startGame();
                 // 게임 시작 로직 (별도의 화면에서 처리)
-            }
+        
+            }});
+        JButton backButton = new JButton("뒤로가기");
+        backButton.setBounds(100, 250, 200, 50);
+        backButton.addActionListener(e2 -> {
+            getContentPane().removeAll();
+            new MainScreen();
+            setVisible(false);
             
         }
-        
         );
-
+        add(backButton);
         add(startButton);
 
         setLocationRelativeTo(null);
         setVisible(true);
+        }
     }
- 
-}
+
 
 
