@@ -1,20 +1,19 @@
 package MazeMap;
+
 import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.Container;
 import javax.swing.JPanel;
-import MazeMap.MazeGenerator;
 import java.awt.GridLayout;
 
-public class MazeManager  {
+public class MazeManager {
     private static final String MAZE_DIRECTORY = "mazes";
     public JPanel[][] cells;
     public Container container;
     public int rows;
     public int cols;
-
 
     public MazeManager(Container container, int rows, int cols) {
         this.container = container;
@@ -25,10 +24,9 @@ public class MazeManager  {
         if (!dir.exists()) {
             dir.mkdir(); // mazes 폴더 생성
         }
-        
+
         initializeCells(rows, cols);
     }
-
 
     private void initializeCells(int rows, int cols) {
         container.setLayout(new GridLayout(rows, cols));
@@ -61,7 +59,6 @@ public class MazeManager  {
         }
     }
 
-
     public boolean[][] loadMaze(String fileName) {
         List<boolean[]> mazeList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(MAZE_DIRECTORY + "/" + fileName))) {
@@ -87,10 +84,9 @@ public class MazeManager  {
         return dir.list((d, name) -> name.endsWith(".txt"));
     }
 
-
-     public void paintCellAndRefresh(int row, int col, Color color) {
-         cells[row][col].setBackground(color);
-         container.revalidate();
-         container.repaint();
+    public void paintCellAndRefresh(int row, int col, Color color) {
+        cells[row][col].setBackground(color);
+        container.revalidate();
+        container.repaint();
     }
 }

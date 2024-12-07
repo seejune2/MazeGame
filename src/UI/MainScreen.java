@@ -68,6 +68,7 @@ public class MainScreen extends JFrame {
             new MazeSelectionScreen();
             setVisible(false);
         });
+        
         add(startMapListButton);
         add(createMazeButton);
         add(startGameButton);
