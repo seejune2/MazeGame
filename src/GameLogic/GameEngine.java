@@ -40,7 +40,7 @@ public class GameEngine extends JFrame {
                         break;
                 }
                 if (isAtExit()) {
-                    JOptionPane.showMessageDialog(null,"도착!");
+                    //JOptionPane.showMessageDialog(null,"도착!");
                 }
 
             }
